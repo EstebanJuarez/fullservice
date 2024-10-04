@@ -59,7 +59,7 @@ function CompCreateProducto() {
                 formData.append("imagenes", compressedImage);
             });
 
-            const res = await axios.post("http://localhost:5004/productos/", formData, {
+            const res = await axios.post("https://www.fullserviceyb.com/productos/", formData, {
                 headers: {
                     "x-auth-token": token,
                 },

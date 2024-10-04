@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import CompShowHeader from "./header";
 import Footer from "./footer";
 
-const localApi = 'http://localhost:5004/';
+const localApi = 'https://www.fullserviceyb.com/';
 const URI = `${localApi}productos/productos/`;
 
 function CompShowProductsSection({ categoria }) {
@@ -35,7 +35,7 @@ function CompShowProductsSection({ categoria }) {
 
   const handleContactClick = (producto) => {
     const message = `Hola, estoy interesado en el producto *${producto.descripcion}* con ID: ${producto.id}`;
-    window.open(`https://wa.me/1234567890?text=${encodeURIComponent(message)}`, "_blank");
+    window.open(`https://wa.me/5493814474009?text=${encodeURIComponent(message)}`, "_blank");
   };
 
   return (
@@ -54,7 +54,7 @@ function CompShowProductsSection({ categoria }) {
                 {producto.img_productos && producto.img_productos.length > 0 ? (
                   <img
                     className="w-full h-48 object-cover rounded-t-lg"
-                    src={`http://localhost:5004/${producto.img_productos[0].ruta}`}
+                    src={`https://www.fullserviceyb.com/${producto.img_productos[0].ruta}`}
                     alt={producto.img_productos[0].descripcion}
                   />
                 ) : (

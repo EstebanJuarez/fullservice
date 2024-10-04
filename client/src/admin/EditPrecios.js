@@ -16,7 +16,7 @@ const CompEditPrecios = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5004/servicios/${selectedModel}/precios`);
+      const response = await axios.get(`https://www.fullserviceyb.com/servicios/${selectedModel}/precios`);
       setData(response.data);
       console.log(response.data);
     } catch (error) {
@@ -28,7 +28,7 @@ const CompEditPrecios = () => {
     e.preventDefault();
     try {
       await axios.put(
-        `http://localhost:5004/servicios/${selectedModel}/precios`,
+        `https://www.fullserviceyb.com/servicios/${selectedModel}/precios`,
         { column, value },
         {
           headers: {

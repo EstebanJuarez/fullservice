@@ -19,7 +19,7 @@ function App() {
     const loadUserRole = async () => {
       try {
         const token = localStorage.getItem('token'); // Asegúrate de almacenar el token cuando el usuario inicia sesión
-        await axios.get('http://localhost:5004/role/role/', {
+        await axios.get('https://www.fullserviceyb.com/role/role/', {
           headers: {
             'x-auth-token': token,
           },

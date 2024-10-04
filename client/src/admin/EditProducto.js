@@ -10,7 +10,7 @@ import Select from 'react-select';
 library.add(faTrash)
 
 
-const URI = 'http://localhost:5004/productos/admin/';
+const URI = 'https://www.fullserviceyb.com/productos/admin/';
 
 function CompEditProducto() {
     const navigate = useNavigate()
@@ -90,7 +90,7 @@ function CompEditProducto() {
         console.log(id);
         if (window.confirm("¿Estás seguro de eliminar esta imagen?")) {
             try {
-                const res = await axios.delete("http://localhost:5004/productos/imagen/" + id, {
+                const res = await axios.delete("https://www.fullserviceyb.com/productos/imagen/" + id, {
                     headers: {
                         "x-auth-token": token
                     }
@@ -189,7 +189,7 @@ function CompEditProducto() {
                 />
                 <div className="mt-2">
                   <img 
-                    src={`http://localhost:5004/${imagen.ruta}`} 
+                    src={`https://www.fullserviceyb.com/${imagen.ruta}`} 
                     alt={`Imagen ${index + 1} del producto`} 
                     className="w-full h-auto rounded"
                   />

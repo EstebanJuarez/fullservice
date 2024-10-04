@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function CompAdminProductos() {
 
-  const URI = 'http://localhost:5004/productos/admin/'
+  const URI = 'https://www.fullserviceyb.com/productos/admin/'
   const [productos, setProductos] = useState([]);
   const token = localStorage.getItem("token")
   const navigate = useNavigate()
