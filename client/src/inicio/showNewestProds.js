@@ -88,7 +88,7 @@ function CompShowProductos() {
 
   const handleContactClick = (producto) => {
     const message = `Hola, estoy interesado en el producto *${producto.descripcion}* con ID: ${producto.id}`;
-    window.open(`https://wa.me/1234567890?text=${encodeURIComponent(message)}`, "_blank");
+    window.open(`https://wa.me/5493814474009?text=${encodeURIComponent(message)}`, "_blank");
   };
 
   return (
