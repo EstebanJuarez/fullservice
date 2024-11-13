@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import CompShowHeader from "./header";
 import Footer from "./footer";
 
-const localApi = 'http://localhost:5004/';
+const localApi = `${process.env.REACT_APP_API_URL}/`;
 const URI = `${localApi}productos/productos/`;
 
 function CompShowProductsSection({ categoria }) {
@@ -54,7 +54,7 @@ function CompShowProductsSection({ categoria }) {
                 {producto.img_productos && producto.img_productos.length > 0 ? (
                   <img
                     className="w-full h-48 object-cover rounded-t-lg"
-                    src={`http://localhost:5004/${producto.img_productos[0].ruta}`}
+                    src={`${process.env.REACT_APP_API_URL}/${producto.img_productos[0].ruta}`}
                     alt={producto.img_productos[0].descripcion}
                   />
                 ) : (
@@ -74,15 +74,15 @@ function CompShowProductsSection({ categoria }) {
                     {producto.detalles &&
                       (expandedProductId === producto.id
                         ? producto.detalles.split("@").map((detail, index) => (
-                            <li key={index} className="text-sm">
-                              {detail}
-                            </li>
-                          ))
+                          <li key={index} className="text-sm">
+                            {detail}
+                          </li>
+                        ))
                         : producto.detalles.split("@").slice(0, 3).map((detail, index) => (
-                            <li key={index} className="text-sm">
-                              {detail}
-                            </li>
-                          )))}
+                          <li key={index} className="text-sm">
+                            {detail}
+                          </li>
+                        )))}
                   </motion.ul>
                   {producto.detalles &&
                     producto.detalles.split("@").length > 3 && (

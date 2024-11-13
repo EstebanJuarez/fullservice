@@ -59,7 +59,7 @@ function CompCreateProducto() {
                 formData.append("imagenes", compressedImage);
             });
 
-            const res = await axios.post("http://localhost:5004/productos/", formData, {
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/productos/`, formData, {
                 headers: {
                     "x-auth-token": token,
                 },

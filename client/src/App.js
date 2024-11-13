@@ -10,8 +10,8 @@ import CompEditProducto from './admin/EditProducto';
 import CompLogin from './inicio/login.js';
 import CompEditPrecios from './admin/EditPrecios.js';
 import CompShowProductsSection from './inicio/showProdsSection.js';
-
-
+import UploadPDF from "./admin/uploadPdf.js"
+import CompShowProdCatalogo from "./admin/showProdCatalogo.js"
 function App() {
 
 
@@ -19,7 +19,7 @@ function App() {
     const loadUserRole = async () => {
       try {
         const token = localStorage.getItem('token'); // Asegúrate de almacenar el token cuando el usuario inicia sesión
-        await axios.get('http://localhost:5004/role/role/', {
+        await axios.get(`${process.env.REACT_APP_API_URL}/role/role/`, {
           headers: {
             'x-auth-token': token,
           },
@@ -49,6 +49,8 @@ function App() {
           <Route path='/admin/productos/edit/:id' element={<><CompEditProducto /> </>} />
           <Route path='/admin/createproducto' element={<> <CompCreateProducto /></>} />
           <Route path='/admin/editPrecios' element={<> <CompEditPrecios /></>} />
+          <Route path='/admin/cargar-Pdf' element={<> <UploadPDF /></>} />
+          <Route path='/admin/catalogo-productos' element={<> <CompShowProdCatalogo /></>} />
 
         </Routes>
       </div>

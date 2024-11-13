@@ -13,10 +13,9 @@ const CompEditPrecios = () => {
   useEffect(() => {
     fetchData();
   }, [selectedModel]);
-
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5004/servicios/${selectedModel}/precios`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/servicios/${selectedModel}/precios`);
       setData(response.data);
       console.log(response.data);
     } catch (error) {
@@ -28,7 +27,7 @@ const CompEditPrecios = () => {
     e.preventDefault();
     try {
       await axios.put(
-        `http://localhost:5004/servicios/${selectedModel}/precios`,
+        `${process.env.REACT_APP_API_URL}/servicios/${selectedModel}/precios`,
         { column, value },
         {
           headers: {

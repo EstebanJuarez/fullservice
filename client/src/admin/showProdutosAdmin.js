@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function CompAdminProductos() {
 
-  const URI = 'http://localhost:5004/productos/admin/'
+  const URI = `${process.env.REACT_APP_API_URL}/productos/admin/`
   const [productos, setProductos] = useState([]);
   const token = localStorage.getItem("token")
   const navigate = useNavigate()
@@ -63,20 +63,20 @@ function CompAdminProductos() {
     <div className="w-full max-w-4xl">
       <h2 className="text-white text-2xl font-bold mb-4 text-center">Productos</h2>
       <div className="flex justify-between items-center mb-4">
-        <div className='flex flex-col gap-5'>   
-           <Link
-          to="/admin/createproducto/"
-          className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-600 transition duration-200"
-        >
-          Añadir Producto
-        </Link>
+        <div className='flex flex-col gap-5'>
+          <Link
+            to="/admin/createproducto/"
+            className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-600 transition duration-200"
+          >
+            Añadir Producto
+          </Link>
           <Link
             to="/admin/editprecios/"
             className="bg-cyan-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-cyan-600 transition duration-200"
           >
-           Actualizar precio de servicios
+            Actualizar precio de servicios
           </Link>
-           </div>
+        </div>
 
         <input
           type="text"

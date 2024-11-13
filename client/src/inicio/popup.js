@@ -18,7 +18,7 @@ const Popup = ({ type }) => {
         window.history.back();
     };
 
-    const localApi = 'http://localhost:5004/';
+    const localApi = `${process.env.REACT_APP_API_URL}/`;
     const URI_INSTALACION = `${localApi}servicios/instalacion/precios`;
     const URI_REPARACION = `${localApi}servicios/reparacion/precios`;
 
@@ -52,7 +52,7 @@ const Popup = ({ type }) => {
     useEffect(() => {
         if (isOpen) {
             window.history.pushState({ popupOpen: true }, '');
-            
+
             const handlePopState = (event) => {
                 if (isOpen && (!event.state || !event.state.popupOpen)) {
                     setIsOpen(false);
@@ -163,25 +163,24 @@ const Popup = ({ type }) => {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{duration: 0.3 }}
-                            className="relative bg-white p-6 shadow-lg rounded-lg max-w-lg mx-auto text-black m-4 sm:m-8"
+                        transition={{ duration: 0.3 }}
+                        className="relative bg-white p-6 shadow-lg rounded-lg max-w-lg mx-auto text-black m-4 sm:m-8"
+                    >
+                        <button
+                            className="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none"
+                            onClick={closeMenu}
+                            aria-label="Cerrar"
                         >
-                            <button
-                                className="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none"
-                                onClick={closeMenu}
-                                aria-label="Cerrar"
-                            >
-                                <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                            {isLoading ? <p>Loading...</p> : content[type]}
-                        </motion.div>
-                    </div>
-                )}
-            </div>
-        );
-    };
-    
-    export default Popup;
-    
+                            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        {isLoading ? <p>Loading...</p> : content[type]}
+                    </motion.div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default Popup;

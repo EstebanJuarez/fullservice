@@ -11,7 +11,7 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 library.add(faChevronRight, faChevronLeft, faSpinner);
 
-const localApi = 'http://localhost:5004/';
+const localApi = `${process.env.REACT_APP_API_URL}/`;
 const URI = `${localApi}productos/lastprods/`;
 
 function useProductos() {
@@ -107,7 +107,7 @@ function CompShowProductos() {
                   {producto.img_productos && producto.img_productos.length > 0 ? (
                     <img
                       className="w-full h-48 object-contain rounded-lg transition-transform transform hover:scale-105"
-                      src={`http://localhost:5004/${producto.img_productos[0].ruta}`}
+                      src={`${process.env.REACT_APP_API_URL}/${producto.img_productos[0].ruta}`}
                       alt={producto.img_productos[0].descripcion}
                     />
                   ) : (

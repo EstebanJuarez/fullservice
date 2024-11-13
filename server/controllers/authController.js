@@ -43,7 +43,7 @@ export const login = async (req, res) => {
             payload,
             miClave,
             {
-                expiresIn:86400
+                expiresIn: 1209600 // 2 semanas en segundos
             },
             (err, token) => {
                 if (err) throw err;
